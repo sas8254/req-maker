@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 sendRequest();
 
 // Then send a request every 10 minutes
-setInterval(sendRequest, 10000);
+setInterval(sendRequest, 600000);
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`Server running on port ${port}`));
