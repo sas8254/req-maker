@@ -16,6 +16,18 @@ const sendRequest = async () => {
   }
 };
 
+const sendRequest1 = async () => {
+  try {
+    const response = await axios.get(
+      "https://algo-trade-rp59.onrender.com/users/get-user-count"
+    );
+    console.log(`Status: ${response.status}`);
+    console.log("Body: ", response.data, " form auto trade");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 let count = 0;
 
 app.get("/", (req, res) => {
@@ -25,9 +37,11 @@ app.get("/", (req, res) => {
 
 // Send the first request when the app starts
 sendRequest();
+sendRequest1();
 
 // Then send a request every 10 minutes
 setInterval(sendRequest, 600000);
+setInterval(sendRequest1, 590000);
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`Server running on port ${port}`));
