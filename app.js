@@ -48,7 +48,7 @@ const printTime = () => {
 // Then send a request every 10 minutes
 setInterval(sendRequest, 600000);
 setInterval(sendRequest1, 590000);
-setInterval(printTime, 2000);
+// setInterval(printTime, 2000);
 
 
 const port = process.env.PORT || 3005;
