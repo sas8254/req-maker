@@ -39,9 +39,17 @@ app.get("/", (req, res) => {
 sendRequest();
 sendRequest1();
 
+
+const printTime = () => {
+  let time = new Date().toISOString();
+  console.log(time);
+};
+
 // Then send a request every 10 minutes
 setInterval(sendRequest, 600000);
 setInterval(sendRequest1, 590000);
+setInterval(printTime, 2000);
+
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`Server running on port ${port}`));
