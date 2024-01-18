@@ -10,7 +10,7 @@ const sendRequest = async () => {
       "https://treading-bot-pcvz.onrender.com/users/get-user-count"
     );
     console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data);
+    console.log("Body: ", response.data, " from menual server");
   } catch (err) {
     console.error(err);
   }
@@ -19,10 +19,10 @@ const sendRequest = async () => {
 const sendRequest1 = async () => {
   try {
     const response = await axios.get(
-      "https://algo-trade-rp59.onrender.com/users/get-user-count"
+      "https://algo-ang.onrender.com/users/get-user-count"
     );
     console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data, " form auto trade");
+    console.log("Body: ", response.data, " form keval server");
   } catch (err) {
     console.error(err);
   }
@@ -39,17 +39,10 @@ app.get("/", (req, res) => {
 sendRequest();
 sendRequest1();
 
-
-const printTime = () => {
-  let time = new Date().toISOString();
-  console.log(time);
-};
-
 // Then send a request every 10 minutes
 setInterval(sendRequest, 600000);
 setInterval(sendRequest1, 590000);
 // setInterval(printTime, 2000);
-
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`Server running on port ${port}`));
