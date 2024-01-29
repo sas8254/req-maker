@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config();
 
 // Function to send a GET request to your API
-const sendRequest = async () => {
+const menualServer = async () => {
   try {
     const response = await axios.get(
       "https://treading-bot-pcvz.onrender.com/users/get-user-count"
@@ -16,13 +16,25 @@ const sendRequest = async () => {
   }
 };
 
-const sendRequest1 = async () => {
+const kevalServer = async () => {
   try {
     const response = await axios.get(
       "https://algo-ang.onrender.com/users/get-user-count"
     );
     console.log(`Status: ${response.status}`);
     console.log("Body: ", response.data, " form keval server");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const jayveerServer = async () => {
+  try {
+    const response = await axios.get(
+      "https://ma-jayveer.onrender.com/users/get-user-count"
+    );
+    console.log(`Status: ${response.status}`);
+    console.log("Body: ", response.data, " form jayveer server");
   } catch (err) {
     console.error(err);
   }
@@ -36,12 +48,14 @@ app.get("/", (req, res) => {
 });
 
 // Send the first request when the app starts
-sendRequest();
-sendRequest1();
+menualServer();
+kevalServer();
+jayveerServer();
 
 // Then send a request every 10 minutes
-setInterval(sendRequest, 600000);
-setInterval(sendRequest1, 590000);
+setInterval(menualServer, 600000);
+setInterval(kevalServer, 590000);
+setInterval(jayveerServer, 610000);
 // setInterval(printTime, 2000);
 
 const port = process.env.PORT || 3005;
