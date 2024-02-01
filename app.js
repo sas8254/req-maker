@@ -64,6 +64,11 @@ app.get("/", (req, res) => {
   res.send(`got the request no ${count}`);
 });
 
+app.get("/test", (req, res) => {
+  count++;
+  res.send(`Test successful`);
+});
+
 // Send the first request when the app starts
 menualServer();
 kevalServer();
