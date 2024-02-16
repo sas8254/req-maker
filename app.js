@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
 const autoTracker = async () => {
   try {
     const response = await axios.get(
-      "https://ma-jayveer.onrender.com/users/get-user-count"
+      "https://auto-tracking-updater.onrender.com/users/get-user-count"
     );
     console.log(`Status: ${response.status}`);
     console.log("Body: ", response.data, " form autoTracker server");
