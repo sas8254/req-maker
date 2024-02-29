@@ -65,8 +65,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  count++;
   res.send(`Test successful`);
+});
+
+app.get("/bug", (req, res) => {
+  chicken.fly();
 });
 
 // Send the first request when the app starts
