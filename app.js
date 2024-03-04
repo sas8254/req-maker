@@ -3,87 +3,21 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
-// Function to send a GET request to your API
-const menualServer = async () => {
-  try {
-    const response = await axios.get(
-      "https://treading-bot-pcvz.onrender.com/users/get-user-count"
-    );
-    console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data, " from menual server");
-  } catch (err) {
-    console.error(err);
-  }
-};
+const arr = process.env.links.split(",");
 
-const kevalServer = async () => {
-  try {
-    const response = await axios.get(
-      "https://algo-ang.onrender.com/users/get-user-count"
-    );
-    console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data, " form keval server");
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const jayveerServer = async () => {
-  try {
-    const response = await axios.get(
-      "https://ma-jayveer.onrender.com/users/get-user-count"
-    );
-    console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data, " form jayveer server");
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-let count = 0;
-
-app.get("/", (req, res) => {
-  count++;
-  res.send(`got the request no ${count}`);
-});
-
-const autoTracker = async () => {
-  try {
-    const response = await axios.get(
-      "https://auto-tracking-updater.onrender.com/users/get-user-count"
-    );
-    console.log(`Status: ${response.status}`);
-    console.log("Body: ", response.data, " form autoTracker server");
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-app.get("/", (req, res) => {
-  count++;
-  res.send(`got the request no ${count}`);
-});
-
-app.get("/test", (req, res) => {
-  res.send(`Test successful`);
-});
-
-app.get("/bug", (req, res) => {
-  chicken.fly();
-});
-
-// Send the first request when the app starts
-menualServer();
-kevalServer();
-jayveerServer();
-autoTracker();
-
-// Then send a request every 10 minutes
-setInterval(menualServer, 600000);
-setInterval(kevalServer, 590000);
-setInterval(jayveerServer, 610000);
-setInterval(autoTracker, 620000);
-// setInterval(printTime, 2000);
+for (let link of arr) {
+  server = async () => {
+    try {
+      const res = await axios.get(link);
+      console.log(`Status: ${res.status}`);
+      console.log("Body: ", res.data, " from ", link);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  server();
+  setInterval(server, 300000);
+}
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`Server running on port ${port}`));
