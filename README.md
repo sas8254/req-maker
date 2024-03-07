@@ -39,8 +39,7 @@ The `req-maker` app continuously sends HTTP requests to a specified API endpoint
 1. Add urls in env file saperated by , for example:
 
    ```env
-      links=https://abc/xyz,https://efg/xy
-   ```
+      links=your-first-api,https:your-2nd-api
 
 2. Start the `req-maker` app:
 
