@@ -36,12 +36,15 @@ The `req-maker` app continuously sends HTTP requests to a specified API endpoint
 
 ### Usage
 
-1. Add urls in env file saperated by , for example:
+1. Create a `.env` file in the root directory and fill in your environment variables
+
+
+2. Add urls in `.env` file saperated by , for example:
 
    ```env
-      links=your-first-api,https:your-2nd-api
+      links=https://your-first-api,https://your-2nd-api
 
-2. Start the `req-maker` app:
+3. Start the `req-maker` app:
 
    ```bash
    node app.js
